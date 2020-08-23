@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444142829977",
+    "firebase_url": "https://eshopstop-24998.firebaseio.com",
+    "project_id": "eshopstop-24998",
+    "storage_bucket": "eshopstop-24998.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444142829977:android:9d01e4b22b12b6c9c19308",
+        "android_client_info": {
+          "package_name": "com.example.eshopstop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444142829977-gei0r532c2ch8rdonrh21rkqjgdj4vng.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRZTyrVwzu4Oxun2Ids5dcgXQpYAxEkTk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444142829977-gei0r532c2ch8rdonrh21rkqjgdj4vng.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
