@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -83,11 +84,13 @@ public class HomeActivity extends AppCompatActivity {
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                mItemsList.clear();
+                searchField.setText("");
                 searchResultsLinearLayout.setVisibility(View.VISIBLE);
                 ViewGroup.LayoutParams params = searchResultsLinearLayout.getLayoutParams();
                 params.height = LinearLayout.LayoutParams.MATCH_PARENT;
                 searchItems(searchField.getText().toString());
-                Log.i("searchField", searchField.getText().toString());
+//                Log.i("searchField", searchField.getText().toString());
             }
         });
 
@@ -102,28 +105,6 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-//        searchField.addTextChangedListener(new TextWatcher() {
-//            @Override
-//            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-//
-//            }
-//
-//            @Override
-//            public void afterTextChanged(Editable editable) {
-//                if (editable.toString().isEmpty()) {
-//                    mItemsList.clear();
-//                    itemsRecyclerAdapter.notifyDataSetChanged();
-//                } else {
-//
-//                }
-//            }
-//        });
-
         homeFragment = new HomeFragment();
         loadFragment(homeFragment);
         mToolbar = findViewById(R.id.home_toolbar);
@@ -136,7 +117,13 @@ public class HomeActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<QuerySnapshot> task) {
                     if (task.isSuccessful() && task.getResult() != null) {
                         for (DocumentSnapshot doc : task.getResult().getDocuments()) {
-                            if (doc.getData().get("name").toString().toLowerCase().contains(search.toLowerCase())) {
+                            Log.i("search query", "onComplete: " + search.toLowerCase());
+//                            Log.i("search response", "onComplete: " + doc.getData().get("name"));
+                            String retrievedItem = (String) doc.getData().get("name");
+                            Log.i("search response", "onComplete: " + retrievedItem.toLowerCase());
+//                            Log.i("search response", "onComplete: " + doc.getData());
+//                            Log.i("search response", "onComplete: " + retrievedItem.toLowerCase().contains(search.toLowerCase()));
+                            if (retrievedItem.toLowerCase().contains(search.toLowerCase())) {
                                 Items items = doc.toObject(Items.class);
                                 mItemsList.add(items);
                                 itemsRecyclerAdapter.notifyDataSetChanged();

@@ -124,7 +124,7 @@ public class HomeFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
                                 Category category = document.toObject(Category.class);
                                 mCategoryList.add(category);
                                 mCategoryAdapter.notifyDataSetChanged();
@@ -142,7 +142,7 @@ public class HomeFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
                                 Feature feature = document.toObject(Feature.class);
                                 mFeatureList.add(feature);
                                 mFeatureAdapter.notifyDataSetChanged();
@@ -160,7 +160,7 @@ public class HomeFragment extends Fragment {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                Log.d(TAG, document.getId() + " => " + document.getData());
+//                                Log.d(TAG, document.getId() + " => " + document.getData());
                                 BestSale bestSale = document.toObject(BestSale.class);
                                 mBestSaleList.add(bestSale);
                                 mBestSaleAdapter.notifyDataSetChanged();
