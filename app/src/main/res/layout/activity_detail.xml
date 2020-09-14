@@ -78,6 +78,7 @@
         android:layout_marginStart="104dp"
         android:text="XY Reviews"
         android:textColor="@android:color/holo_blue_dark"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/detail_ratingType_textView"
         app:layout_constraintTop_toTopOf="parent"
@@ -146,6 +147,7 @@
             android:id="@+id/detail_small_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#c9c9c9"
             android:text="S"
             app:layout_constraintEnd_toStartOf="@+id/detail_medium_button"
             app:layout_constraintHorizontal_bias="0.5"
@@ -168,6 +170,7 @@
             android:id="@+id/detail_large_button"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:background="#c9c9c9"
             android:text="L"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -190,7 +193,8 @@
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_weight="1"
-            android:text="Add to Cart" />
+            android:text="Add to Cart"
+            android:visibility="gone" />
 
         <Button
             android:id="@+id/detail_buy_button"

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,7 +24,7 @@ public class DetailActivity extends AppCompatActivity {
     private ImageView mDetailImage;
     private TextView mDetailItemName, mDetailPrice, mDetailRatingNumber, mDetailRatingType,
             mDetailDesc;
-    private Button mDetailAddToCartBtn, mDetailBuyBtn;
+    private Button mDetailAddToCartBtn, mDetailBuyBtn, smallBtn, mediumBtn, largeBtn;
     Feature feature;
     BestSale bestSale;
     Items items;
@@ -43,11 +44,59 @@ public class DetailActivity extends AppCompatActivity {
         mDetailRatingNumber = findViewById(R.id.detail_rating_number_textView);
         mDetailRatingType = findViewById(R.id.detail_ratingType_textView);
         mDetailDesc = findViewById(R.id.detail_desc_textView);
+
+        smallBtn = findViewById(R.id.detail_small_button);
+        mediumBtn = findViewById(R.id.detail_medium_button);
+        largeBtn = findViewById(R.id.detail_large_button);
+
         mDetailAddToCartBtn = findViewById(R.id.detail_add_to_cart_button);
         mDetailBuyBtn = findViewById(R.id.detail_buy_button);
 
         feature = null;
         bestSale = null;
+
+        smallBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                smallBtn.setBackgroundResource(R.drawable.login_btn_bg);
+                smallBtn.setTextColor(Color.WHITE);
+
+                mediumBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                mediumBtn.setTextColor(Color.BLACK);
+
+                largeBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                largeBtn.setTextColor(Color.BLACK);
+            }
+        });
+
+        mediumBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mediumBtn.setBackgroundResource(R.drawable.login_btn_bg);
+                mediumBtn.setTextColor(Color.WHITE);
+
+                smallBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                smallBtn.setTextColor(Color.BLACK);
+
+                largeBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                largeBtn.setTextColor(Color.BLACK);
+            }
+        });
+
+        largeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                largeBtn.setBackgroundResource(R.drawable.login_btn_bg);
+                largeBtn.setTextColor(Color.WHITE);
+
+                smallBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                smallBtn.setTextColor(Color.BLACK);
+
+                mediumBtn.setBackgroundColor(Color.parseColor("#c9c9c9"));
+                mediumBtn.setTextColor(Color.BLACK);
+            }
+        });
+
 
         final Object obj = getIntent().getSerializableExtra("detail");
         if (obj instanceof Feature) {

@@ -90,6 +90,11 @@ public class HomeActivity extends AppCompatActivity {
         searchField.setOnKeyListener(new View.OnKeyListener() {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 // If the event is a key-down event on the "enter" button
+
+                if (mItemsList.size() > 0) {
+                    mItemsList.clear();
+                }
+
                 boolean state = false;
                 if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
                         (keyCode == KeyEvent.KEYCODE_ENTER)) {
